@@ -13,15 +13,14 @@ public class NumberOfWordsCanType {
         String[] letters = brokenLetters.split("");
 
         int numberOfWords = words.length;
+        forloop:
         for (String word : words) {
             int count = 0;
             for (String letter : letters) {
                 if (!letter.isBlank() && word.contains(letter)){
-                    count++;
+                    numberOfWords--;
+                    continue forloop;
                 }
-            }
-            if (count>0){
-                numberOfWords--;
             }
         }
         return numberOfWords;
